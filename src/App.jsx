@@ -11,7 +11,7 @@ function App() {
   
   useEffect(() => {
     // Check if the current route is Sign In or Sign Up
-    if (location.pathname === '/' || location.pathname === '/sing-up') {
+    if (location.pathname === '/' || location.pathname === '/sing-up' || location.pathname === '/sign-in') {
       document.body.style.background = `url(${bannerImage}) no-repeat` ;
       document.body.style.height = '100%';
       document.body.style.filter = 'brightness(100%)';
@@ -33,6 +33,7 @@ function App() {
   return (
         <Routes>
           <Route path="/" element={<SignIn />} />
+          <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sing-up" element={<SignUp />} />
           <Route path="/home" element={<Home />} />
         </Routes>

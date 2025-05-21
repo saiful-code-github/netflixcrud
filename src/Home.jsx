@@ -80,7 +80,7 @@ export const Home = () =>{
               {
                 scroll && (
                   <div onClick={scrollUp} className="bg-red-700 cursor-pointer text-white text-center fixed bottom-[45px] right-[45px]
-                     rounded-[5px] p-2.5">
+                     rounded-[5px] p-3">
                     <i className="bi-arrow-up text-2xl"></i>
                     </div>
                 )
