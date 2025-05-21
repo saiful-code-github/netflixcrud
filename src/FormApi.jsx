@@ -1,6 +1,5 @@
 import { CContainer } from "@coreui/react"
 import { postApi, putApi } from "./APPI/Api";
-import { useEffect} from "react";
 
 // eslint-disable-next-line react/prop-types
 export const FormApi = ({newData, setNewData, data, setData,editId,setEditId}) => {
