@@ -10,3 +10,27 @@ form input{
   border: 1px solid #7a7878;
   border-radius: 5px;
 }
+.sticky{
+  position: fixed;
+  top: 0;
+  left:0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 999;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: all .4s ease linear;
+  animation: animate 0.5s both;
+}
+@keyframes animate {
+   0%{
+      opacity: 0;
+      transform: translate3d(0, -100%, 0)
+   }
+   100%{
+    opacity: 1;
+    transform: none;
+   }
+}

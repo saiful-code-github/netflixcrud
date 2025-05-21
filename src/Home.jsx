@@ -12,6 +12,7 @@ export const Home = () =>{
         body: ""
     });
     const [scroll, setScroll] = useState(false);
+    const [editId, setEditId] = useState(null);
     //scroll up 
     const scrollUp = () =>{
         window.scrollTo({
@@ -61,13 +62,14 @@ export const Home = () =>{
     }
     //EditData 
     const EditData = (item) => {
+        setEditId(item.id)
         setNewData(item)
     }
     return (
          <section>
              <CContainer>
                 <h1 className="text-2xl capitalize text-center mb-3.5 pt-6 pb-8">Todo App</h1>
-                <FormApi newData={newData} setNewData={setNewData} data={data} setData={setData}/>
+                <FormApi newData={newData} setNewData={setNewData} data={data} setData={setData} editId={editId} setEditId={setEditId}/>
                 {loading ? (
                     <p className="text-center font-extrabold text-3xl capitalize">Loading...</p>
                 ): (

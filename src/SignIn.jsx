@@ -8,6 +8,7 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Initialize useNavigate
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -37,16 +38,18 @@ const SignIn = () => {
             required
           />
         </div>
-        <div>
+        <div className='relative'>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={password}
             placeholder='Enter Your Password'
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <button type='button' onClick={(e)=> {e.preventDefault(); setShowPassword(!showPassword)}} className='absolute top-[29%] right-[4%]'>{showPassword ? <i className='bi bi-eye'/> : <i className='bi bi-eye-slash'/>}</button>
         </div>
-        <button type="submit" className='bg-red-600 text-center inline-block text-white capitalize py-[10px] px-[60px] ' style={{fontSize: "18px",marginTop: "30px",marginBottom: "20px", borderRadius: "5px"}}>Sign In</button>
+        <button type="submit" className='bg-red-600 text-center inline-block text-white 
+        capitalize py-[10px] px-[60px] ' style={{fontSize: "18px",marginTop: "30px",marginBottom: "20px", borderRadius: "5px"}}>Sign In</button>
         <p className='text-[18px]'>
         Don't have an account? <Link to="/sing-up" className='text-white font-bold' style={{textDecoration: "none"}}>Sign Up</Link>
       </p>

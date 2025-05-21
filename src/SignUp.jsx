@@ -8,6 +8,7 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Initialize useNavigate
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -35,14 +36,15 @@ const SignUp = () => {
             required
           />
         </div>
-        <div>
+        <div className='relative'>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={password}
             placeholder='Enter Your Password'
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <button onClick={(e)=> {e.preventDefault(); setShowPassword(!showPassword)}} type='button' className='outline-0 absolute top-[29%] right-[4%]'>{showPassword ? <i className='bi bi-eye'/> : <i className='bi bi-eye-slash'/>}</button>
         </div>
         <button type="submit" className='bg-red-600 text-center inline-block text-white capitalize py-[10px] px-[60px] ' style={{fontSize: "18px",marginTop: "30px",marginBottom: "20px", borderRadius: "5px"}}>Sign Up</button>
         <p className='text-[18px] text-center'>
