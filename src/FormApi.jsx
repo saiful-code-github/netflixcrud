@@ -1,10 +1,9 @@
 import { CContainer } from "@coreui/react"
 import { postApi, putApi } from "./APPI/Api";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 
 // eslint-disable-next-line react/prop-types
 export const FormApi = ({newData, setNewData, data, setData,editId,setEditId}) => {
-    const [nav, setNav] = useState(false)
     //handleSubmit 
     const handleChange = (e) =>{
         const {value, name} = e.target;
@@ -64,21 +63,10 @@ export const FormApi = ({newData, setNewData, data, setData,editId,setEditId}) =
             body: ""
          })
      }
-     useEffect(()=>{
-        const navScroll = () => {
-            if(document?.body?.scrollTop || document?.documentElement?.scrollTop > 100){
-                setNav(true)
-            }else{
-                setNav(false)
-            }
-        }
-        window.addEventListener('scroll', navScroll);
-        return () => window.removeEventListener('scroll', navScroll)
-     },[])
     return (
         <section>
               <CContainer>
-                  <form className={`flex gap-2 flex-row justify-center mb-7 ${nav ? "sticky" : ''}`} onSubmit={handleSubmit}> 
+                  <form className={`flex gap-2 flex-row justify-center mb-7`} onSubmit={handleSubmit}> 
                       <div>
                           <input type="text" name="title" value={newData.title} placeholder="Enter the Title"
                            onChange={handleChange} className="outline-0" />
